@@ -1,0 +1,287 @@
+body
+{
+	background-image:url(../images/background.gif); 
+	background-repeat:repeat-x;
+	background-position: top;
+	background-attachment:fixed;
+	margin:0px;
+	padding:0px;
+	font-family: Arial;
+	font-size: 14px;
+}
+
+div.top
+{	
+	background-color: #FFFFFF;
+	margin-top: 10px; 
+	margin-left: 10%; 	
+	margin-right: 10%;
+	text-align: center;
+}
+
+div.frame
+{
+	width: 80%;
+	margin-left: 10%; 	
+	margin-right: 10%;
+	background-color: #FFFFFF;
+	font-family: Arial;
+}
+
+div.content
+{	
+	padding-left: 10px;
+	padding-right: 10px;
+}
+
+div.menu
+{
+	padding-left: 10px;
+	padding-right: 10px;
+}
+
+td.menu 
+{
+	background-color: #000000;
+	height: 40px;
+	width: 20%;
+}
+
+a.menu 
+{
+	text-decoration: none;
+	font-weight: bold;
+	color: #FFFFFF;
+}
+
+.previous a { display: block; width: 30px; height: 30px; background-image: url(../images/previous.png); }
+.previous a:hover { display: block; width: 30px; height: 30px; background-image: url(../images/previous_hover.png); }
+
+.next a { display: block; width: 30px; height: 30px; background-image: url(../images/next.png); }
+.next a:hover { display: block; width: 30px; height: 30px; background-image: url(../images/next_hover.png); }
+
+.btnAdd a  { display: block; width: 20px; height: 20px; background-image: url(../images/_add.png); }
+.btnAdd a:hover { display: block; width: 20px; height: 20px; background-image: url(../images/_add_hover.png); }
+
+.btnDelete a  { display: block; width: 20px; height: 20px; background-image: url(../images/delete.png); }
+.btnDelete a:hover { display: block; width: 20px; height: 20px; background-image: url(../images/delete_hover.png); }
+
+.btnEdit a  { display: block; width: 20px; height: 20px; background-image: url(../images/edit.png); }
+.btnEdit a:hover { display: block; width: 20px; height: 20px; background-image: url(../images/edit_hover.png); }
+
+.btnPaid a  { display: block; width: 20px; height: 20px; background-image: url(../images/paid.png); }
+.btnPaid a:hover { display: block; width: 20px; height: 20px; background-image: url(../images/paid_hover.png); }
+
+.btnUnpaid a  { display: block; width: 20px; height: 20px; background-image: url(../images/unpaid.png); }
+.btnUnpaid a:hover { display: block; width: 20px; height: 20px; background-image: url(../images/unpaid_hover.png); }
+
+.btnSave a  { display: block; width: 40px; height: 40px; background-image: url(../images/save.png); }
+.btnSave a:hover { display: block; width: 40px; height: 40px; background-image: url(../images/save_hover.png); }
+
+.btnEye a  { display: block; width: 40px; height: 40px; background-image: url(../images/eye.png); }
+.btnEye a:hover { display: block; width: 40px; height: 40px; background-image: url(../images/eye_hover.png); }
+
+.btnPrint a  { display: block; width: 40px; height: 40px; background-image: url(../images/printer.png); }
+.btnPrint a:hover { display: block; width: 40px; height: 40px; background-image: url(../images/printer_hover.png); }
+
+.date-picker
+{ 
+	border: 0px; 
+	font-size: 15px;
+	font-weight: bold;
+	color: #168BD4;
+	cursor: pointer;
+	text-align: center;
+}
+
+#ui-datepicker-div 
+{
+	font-size: 12px;
+}
+
+.ui-datepicker-calendar 
+{
+    display: none;
+}
+
+.link a
+{
+	text-decoration: none;
+	color: #000000;
+}
+
+div.add 
+{ 
+	padding-left: 10px;
+	font-family: Arial;
+	font-size: 14px;
+}
+
+textarea
+{
+	font-family: Arial;
+	font-size: 14px;
+}
+
+.hidden
+{
+	display: none;
+}
+
+.negativ {
+	color: red;
+}
+
+.negativBG {
+	background-color:#FFC3C3;
+}
+
+.remark 
+{
+	font-size: 12px;
+}
+
+a img
+{
+	border: none;
+}
+
+.link 
+{
+	text-decoration: none;
+	color: #000000;
+}
+
+.status 
+{
+	font-size: 22px;
+	color: #000000;
+}
+
+th {
+	color: white;
+	background-color:#168BD4;
+	border:1px solid #6495ed;
+}
+
+h3 {
+	padding: 0px;
+	margin: 0px;
+}
+
+.button {
+    font-family: Helvetica, Arial, sans-serif;
+	font-size: 0.9em;
+	margin: 0;
+	color: #fff;
+	font-weight: bold;
+	background: #168BD4;
+	border: 2px solid #168BD4;
+	padding: 0.25em 6px;
+	cursor: pointer;
+	-webkit-border-radius: 5px;
+}
+
+.button:hover {
+	background: #169FFF;
+	border: 2px solid #169FFF;
+}
+
+table.detail 
+{
+	font-style: italic;
+	font-size: 12px;
+	background-color: #D0E3FA;
+}
+
+.marginTop {
+	padding-top: 7px;
+}
+
+label.error { color: red; font-style: italic }
+form.addForm { width: 30em; }
+form.addForm label.error {
+	display: block;
+	width: auto;
+	margin-bottom: 10px;
+}
+
+table#recapTable  td {
+	border: thin solid #000;
+}
+
+#recCheckBox label { width: 100px; }
+
+td.solde { 
+	font-size: 16px; 
+	font-weight: bold;
+}
+
+/*************** Tooltips ****************/
+.tooltip {
+	color: #000000;
+	cursor: hand; text-decoration: none;
+	position: relative;
+}
+.tooltip span {
+	margin-left: -999em;
+	position: absolute;
+}
+.tooltip:hover span {
+	border-radius: 5px 5px; -moz-border-radius: 5px; -webkit-border-radius: 5px; 
+	box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.1); -webkit-box-shadow: 5px 5px rgba(0, 0, 0, 0.1); -moz-box-shadow: 5px 5px rgba(0, 0, 0, 0.1);
+	font-family: Calibri, Tahoma, Geneva, sans-serif;
+	position: absolute; top: 2em; z-index: 99;
+	margin-left: 0; width: 150px;
+	text-align: left;
+}
+.tooltip:hover span.left {left: -12.5em;}
+.tooltip:hover span.right {left: 1em;}
+
+.tooltip:hover span img {
+	border: 0; margin: -15px 0 0 245px;
+	float: left; position: absolute;
+}
+.tooltip:hover em {
+	font-family: Candara, Tahoma, Geneva, sans-serif; font-size: 1.2em; font-weight: bold;
+	display: block; padding: 0.2em 0 0.6em 0;
+}
+.classic { padding: 0.8em 1em; }
+.custom { padding: 0.5em 0.8em 0.8em 0.8em; }
+* html a:hover { background: transparent; }
+.classic {background: #FFFFAA; border: 1px solid #FFAD33; }
+.critical { background: #FFCCAA; border: 1px solid #FF3334;	}
+.help { background: #9FDAEE; border: 1px solid #168BD4;	}
+.info { background: #D0E3FA; border: 1px solid #2BB0D7;	}
+.warning { background: #FFFFAA; border: 1px solid #FFAD33; }
+
+/*************** Button ****************/
+.budgetButton {
+	-moz-box-shadow:inset 0px 1px 0px 0px #cae3fc;
+	-webkit-box-shadow:inset 0px 1px 0px 0px #cae3fc;
+	box-shadow:inset 0px 1px 0px 0px #cae3fc;
+	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #79bbff), color-stop(1, #4197ee) );
+	background:-moz-linear-gradient( center top, #79bbff 5%, #4197ee 100% );
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#79bbff', endColorstr='#4197ee');
+	background-color:#79bbff;
+	-moz-border-radius:6px;
+	-webkit-border-radius:6px;
+	border-radius:6px;
+	border:1px solid #469df5;
+	display:inline-block;
+	color:#ffffff;
+	font-family:arial;
+	font-size:15px;
+	font-weight:bold;
+	padding:6px 24px;
+	text-decoration:none;
+	text-shadow:1px 1px 0px #287ace;
+}.budgetButton:hover {
+	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #4197ee), color-stop(1, #79bbff) );
+	background:-moz-linear-gradient( center top, #4197ee 5%, #79bbff 100% );
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#4197ee', endColorstr='#79bbff');
+	background-color:#4197ee;
+}.budgetButton:active {
+	position:relative;
+	top:1px;
+}

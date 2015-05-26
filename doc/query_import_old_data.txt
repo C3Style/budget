@@ -1,0 +1,159 @@
+INSERT INTO user (SELECT * FROM user_old)
+
+INSERT INTO type (SELECT * FROM type_old)
+
+INSERT INTO solde
+(SELECT `SO_YEAR`, `SO_AMOUNT`,
+CASE `SO_LOGIN`
+     WHEN 'chris' THEN '0983 4930'
+     WHEN 'bubu' THEN '0917 9995'
+     WHEN 'lubu' THEN '5253 4511'
+END AS SO_ACCOUNT, `SO_LOGIN`
+FROM `solde_old`)
+
+INSERT INTO transaction
+(SELECT `TR_ID`, `TR_TY_ID`, `TR_OP_ID`, `TR_DATE`, `TR_AMOUNT`, `TR_REMARK`, `TR_LOGIN`,
+CASE `TR_LOGIN`
+     WHEN 'chris' THEN '0983 4930'
+     WHEN 'bubu'  THEN '0917 9995'
+     WHEN 'lubu'  THEN '5253 4511'
+END AS TR_AC_ID
+FROM `transaction_old`)
+
+update transaction set TR_LOGIN = 'import' where TR_LOGIN = 'lubu'
+
+INSERT INTO recurrence (SELECT * FROM recurrence_old)
+
+INSERT INTO operation VALUES (29, 'Argent de poche', 'bubu');
+INSERT INTO operation VALUES (30, 'Impôts', 'bubu');
+INSERT INTO operation VALUES (31, 'Assurance maladie', 'bubu');
+INSERT INTO operation VALUES (32, 'Pension', 'bubu');
+INSERT INTO operation VALUES (33, 'Natel', 'bubu');
+INSERT INTO operation VALUES (34, 'Essence', 'bubu');
+INSERT INTO operation VALUES (36, 'Habits', 'bubu');
+INSERT INTO operation VALUES (37, 'Voyages', 'bubu');
+INSERT INTO operation VALUES (38, 'Epargne', 'bubu');
+INSERT INTO operation VALUES (39, 'Divers et imprévus', 'bubu');
+INSERT INTO operation VALUES (43, 'Anniversaires', 'bubu');
+INSERT INTO operation VALUES (44, 'Sorties diverses', 'bubu');
+INSERT INTO operation VALUES (46, 'Médecins', 'bubu');
+INSERT INTO operation VALUES (48, 'Assurance voiture', 'bubu');
+INSERT INTO operation VALUES (50, 'Assurance RC', 'bubu');
+INSERT INTO operation VALUES (64, 'Loyer', 'bubu');
+INSERT INTO operation VALUES (8, 'Abonnement de train', 'chris');
+INSERT INTO operation VALUES (16, 'Impôts militaires', 'chris');
+INSERT INTO operation VALUES (17, 'Plaques voitures', 'chris');
+INSERT INTO operation VALUES (18, 'Cotisation annuelle MasterCard', 'chris');
+INSERT INTO operation VALUES (22, 'Réparations voitures', 'chris');
+INSERT INTO operation VALUES (24, 'Lentilles', 'chris');
+INSERT INTO operation VALUES (26, 'Vin', 'chris');
+INSERT INTO operation VALUES (28, 'Jeux vidéos', 'chris');
+INSERT INTO operation VALUES (56, 'Ajustement', 'chris');
+INSERT INTO operation VALUES (60, 'Cadeaux de Noël', 'chris');
+INSERT INTO operation VALUES (68, 'Commissions ménage', 'chris');
+INSERT INTO operation VALUES (77, 'Remboursement voiture', 'chris');
+INSERT INTO operation VALUES (70, 'Commissions', 'lubu');
+INSERT INTO operation VALUES (72, 'Appareils ménagers', 'lubu');
+INSERT INTO operation VALUES (73, 'Repas extérieur', 'lubu');
+INSERT INTO operation VALUES (74, 'Abonnement (Internet   TV)', 'lubu');
+INSERT INTO operation VALUES (75, 'Electricité', 'lubu');
+INSERT INTO operation VALUES (80, 'Assurance', 'lubu');
+
+# Missing value only for Sandrine
+INSERT INTO operation VALUES (59, 'Equipements de hockey', 'bubu');
+INSERT INTO operation VALUES (57, 'Déménagement', 'bubu');
+INSERT INTO operation VALUES (53, 'Leasing voiture', 'bubu');
+INSERT INTO operation VALUES (54, 'Caisse de classe', 'bubu');
+INSERT INTO operation VALUES (55, 'SAGEFI', 'bubu');
+INSERT INTO operation VALUES (52, 'Osthéopathe', 'bubu');
+INSERT INTO operation VALUES (61, 'Cotisation hockey', 'bubu');
+INSERT INTO operation VALUES (62, 'Tennis', 'bubu');
+INSERT INTO operation VALUES (63, 'Dentiste', 'bubu');
+INSERT INTO operation VALUES (65, 'Ecole', 'bubu');
+INSERT INTO operation VALUES (66, 'Cotion appartement', 'bubu');
+INSERT INTO operation VALUES (67, 'Sous pour les commissions', 'bubu');
+INSERT INTO operation VALUES (76, 'Commissions,swisscom, billag', 'bubu');
+INSERT INTO operation VALUES (78, 'Médicaments', 'bubu');
+INSERT INTO operation VALUES (79, 'Commissions personnelles', 'bubu');
+
+
+update operation set OP_LOGIN = 'import' where OP_LOGIN = 'lubu'
+
+UPDATE transaction set TR_OP_ID = 29 WHERE TR_OP_ID = 1;
+UPDATE transaction set TR_OP_ID = 30 WHERE TR_OP_ID = 15;
+UPDATE transaction set TR_OP_ID = 31 WHERE TR_OP_ID = 4;
+UPDATE transaction set TR_OP_ID = 32 WHERE TR_OP_ID = 5;
+UPDATE transaction set TR_OP_ID = 33 WHERE TR_OP_ID = 6;
+UPDATE transaction set TR_OP_ID = 34 WHERE TR_OP_ID = 7;
+UPDATE transaction set TR_OP_ID = 36 WHERE TR_OP_ID = 9;
+UPDATE transaction set TR_OP_ID = 37 WHERE TR_OP_ID = 10;
+UPDATE transaction set TR_OP_ID = 38 WHERE TR_OP_ID = 11;
+UPDATE transaction set TR_OP_ID = 39 WHERE TR_OP_ID = 12;
+UPDATE transaction set TR_OP_ID = 43 WHERE TR_OP_ID = 21;
+UPDATE transaction set TR_OP_ID = 44 WHERE TR_OP_ID = 20;
+UPDATE transaction set TR_OP_ID = 46 WHERE TR_OP_ID = 23;
+UPDATE transaction set TR_OP_ID = 48 WHERE TR_OP_ID = 25;
+UPDATE transaction set TR_OP_ID = 50 WHERE TR_OP_ID = 27;
+UPDATE transaction set TR_OP_ID = 64 WHERE TR_OP_ID = 69;
+UPDATE transaction set TR_OP_ID = 64 WHERE TR_OP_ID = 71;
+
+Créer dummy query 0 DUMMY chris
+
+update operation set `OP_LOGIN` = 'chris' where `OP_LOGIN` = 'import';
+delete FROM `recurrence` WHERE `RE_TR_ID` not in (select TR_ID from transaction);
+UPDATE `solde` SET `SO_LOGIN` = 'chris' WHERE `solde`.`SO_YEAR` = 2010 AND `solde`.`SO_ACCOUNT` = '5253 4511';
+update transaction set `TR_LOGIN` = 'chris' where `TR_LOGIN` = 'import';
+
+ALTER TABLE `compte`  ENGINE = InnoDB;
+ALTER TABLE `operation`  ENGINE = InnoDB;
+ALTER TABLE `recurrence`  ENGINE = InnoDB;
+ALTER TABLE `solde`  ENGINE = InnoDB;
+ALTER TABLE `transaction`  ENGINE = InnoDB;
+ALTER TABLE `type`  ENGINE = InnoDB;
+ALTER TABLE `user`  ENGINE = InnoDB;
+
+ALTER TABLE `transaction` ADD INDEX ( `TR_TY_ID` );
+ALTER TABLE `transaction` ADD INDEX ( `TR_OP_ID` );
+ALTER TABLE `transaction` ADD INDEX ( `TR_LOGIN` );
+ALTER TABLE `transaction` ADD INDEX ( `TR_AC_ID` );
+ALTER TABLE `compte` ADD INDEX ( `CO_LOGIN` );
+ALTER TABLE `operation` ADD INDEX ( `OP_LOGIN` );
+ALTER TABLE `recurrence` ADD INDEX ( `RE_TR_ID` );
+ALTER TABLE `solde` ADD INDEX ( `SO_ACCOUNT` , `SO_LOGIN` );
+
+
+ALTER TABLE `transaction` ADD FOREIGN KEY ( `TR_TY_ID` ) REFERENCES `type` (
+`TY_ID`
+) ON DELETE RESTRICT ON UPDATE CASCADE ;
+
+ALTER TABLE `transaction` ADD FOREIGN KEY ( `TR_OP_ID` ) REFERENCES `operation` (
+`OP_ID`
+) ON DELETE RESTRICT ON UPDATE CASCADE ;
+
+ALTER TABLE `compte` ADD FOREIGN KEY ( `CO_LOGIN` ) REFERENCES `user` (
+`US_LOGIN`
+) ON DELETE RESTRICT ON UPDATE CASCADE ;
+
+ALTER TABLE `operation` ADD FOREIGN KEY ( `OP_LOGIN` ) REFERENCES `user` (
+`US_LOGIN`
+) ON DELETE RESTRICT ON UPDATE CASCADE ;
+
+ALTER TABLE `recurrence` ADD FOREIGN KEY ( `RE_TR_ID` ) REFERENCES `transaction` (
+`TR_ID`
+) ON DELETE RESTRICT ON UPDATE CASCADE ;
+
+ALTER TABLE `solde` ADD FOREIGN KEY ( `SO_ACCOUNT` ) REFERENCES `compte` (
+`CO_ID`
+) ON DELETE RESTRICT ON UPDATE CASCADE ;
+
+ALTER TABLE `solde` ADD FOREIGN KEY ( `SO_LOGIN` ) REFERENCES `user` (
+`US_LOGIN`
+) ON DELETE RESTRICT ON UPDATE CASCADE ;
+
+ALTER TABLE `transaction` ADD FOREIGN KEY ( `TR_AC_ID` ) REFERENCES `compte` (
+`CO_ID`
+) ON DELETE RESTRICT ON UPDATE CASCADE ;
+
+ALTER TABLE `transaction` ADD FOREIGN KEY ( `TR_LOGIN` ) REFERENCES `user` (
+`US_LOGIN`
+) ON DELETE RESTRICT ON UPDATE CASCADE ;

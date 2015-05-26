@@ -1,0 +1,6 @@
+SELECT count( * ) , OP_NAME, CO_NAME
+FROM transaction, operation, compte
+WHERE TR_OP_ID = OP_ID
+AND TR_AC_ID = CO_ID
+GROUP BY OP_ID, TR_AC_ID
+ORDER BY CO_NAME, OP_NAME
