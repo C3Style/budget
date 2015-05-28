@@ -30,6 +30,13 @@ class User {
 		return false;
 	}
 	
+	public static function updatePassword($login, $newPassword) {
+		$sql  = "UPDATE user_t ";
+		$sql .= "SET US_PASSWORD = MD5('".$newPassword."') ";
+		$sql .= "WHERE US_LOGIN = '".$login."' ";
+		$result = DB::execute($sql);
+	}	
+	
 	public function getLogin() {
 		return $this->login;
 	}

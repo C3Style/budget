@@ -204,7 +204,19 @@ function saveCopy() {
 	}
 
 	$('#copyBudgetOperation').html('<p>Etes-vous sûr d\'effectuer la copie des transactions sélectionnées?<p>');
+	$('#copyBudgetOperation').html('<p>Etes-vous sûr d\'effectuer la copie des transactions sélectionnées?<p>');
 	$('#copyBudgetOperation').dialog('open');
+}
+
+function updatePassword() {
+
+	if ($('#newPassword').val() != $('#confirmPassword').val()) {
+		$('#errorOperation').html('<p>Le nouveau mot de passe ne correspond pas à la confirmation.<p>');
+		$('#errorOperation').dialog('open');
+	}
+	else {
+		$('form').submit();
+	}
 }
 
 function refreshDataCopyBudget() {

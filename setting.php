@@ -194,25 +194,33 @@
 			</table>
 		</div>
 		<div id="tab4" class="tab_content">
-			<table border="0">
-				<tr>
-					<td width="250px"><?php echo Texte::getText($_SESSION['lang'], 'actuel_pwd'); ?></td>
-					<td width="200px"><input id="actual_pwd" type="password"/></td>
-				</tr>
-				<tr>
-					<td><?php echo Texte::getText($_SESSION['lang'], 'nouveau_pwd'); ?></td>
-					<td><input id="new_pwd" type="password"/></td>
-				</tr>
-				<tr>
-					<td><?php echo Texte::getText($_SESSION['lang'], 'confirm_pwd'); ?></td>
-					<td><input id="confirm_pwd" type="password"/></td>
-				</tr>
-				<tr>
-					<td class="btnSave" colspan="2" style="padding-top: 10px;">
-						<a class="tooltip" href="javascript:saveCopy();"><span class="custom info right"><?php echo Texte::getText($_SESSION['lang'], 'update_pwd'); ?></span></a>
-					</td>
-				</tr>
-			</table>
+			<form method="post" id="updatePassword" action="updatePassword.php" enctype="x-www-form-urlencoded">
+				<table border="0">
+					<tr>
+						<td width="250px"><?php echo Texte::getText($_SESSION['lang'], 'actuel_pwd'); ?></td>
+						<td width="200px"><input id="password" name="password" type="password"/></td>
+					</tr>
+					<tr>
+						<td><?php echo Texte::getText($_SESSION['lang'], 'nouveau_pwd'); ?></td>
+						<td><input id="newPassword" name="newPassword" type="password"/></td>
+					</tr>
+					<tr>
+						<td><?php echo Texte::getText($_SESSION['lang'], 'confirm_pwd'); ?></td>
+						<td><input id="confirmPassword" name="confirmPassword" type="password"/></td>
+					</tr>
+				</table>
+				<input id="account" name="account" type="hidden" value="<?php echo $account; ?>"/>
+				<table style="padding-top: 10px;">
+					<tr>
+						<td class="btnSave"><a class="tooltip" href="javascript:updatePassword();"><span class="custom info right"><?php echo Texte::getText($_SESSION['lang'], 'update_pwd'); ?></span></a></td>
+							<?php if (isset($_GET['status']) && $_GET['status'] == 1) { ?>
+								<td><span style="color:green;">&nbsp;&nbsp;&nbsp;<?php echo Texte::getText($_SESSION['lang'], 'update_pwd_ok'); ?></h3></td>
+							<?php } elseif (isset($_GET['status']) && $_GET['status'] == 0) { ?>
+								<td><span style="color:red;">&nbsp;&nbsp;&nbsp;<?php echo Texte::getText($_SESSION['lang'], 'update_pwd_ko'); ?></h3></td>
+							<?php } ?>
+					</tr>
+				</table>
+			</form>
 			<br/><br/>
 		</div>
 	</div>
