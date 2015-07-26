@@ -23,7 +23,7 @@ class User {
 		$result = DB::execute($sql);
 		
 		if ($result) {
-			$row = mysql_fetch_assoc($result);
+			$row = mysqli_fetch_assoc($result);
 			$return = self::loadByRow($row);
 			return $return;
 		}			

@@ -177,7 +177,7 @@ $(function(){
 				$(this).dialog('close'); 
 			},
 			"Oui": function() { 
-				$('form').submit();
+				$('#copyBudget').submit();
 			},
 		}
 	});
@@ -215,7 +215,7 @@ function updatePassword() {
 		$('#errorOperation').dialog('open');
 	}
 	else {
-		$('form').submit();
+		$('#updatePassword').submit();
 	}
 }
 

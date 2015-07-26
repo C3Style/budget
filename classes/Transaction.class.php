@@ -45,7 +45,7 @@ class Transaction {
 		$result = DB::execute($sql);
 		
 		if ($result) {
-			while ($row = mysql_fetch_assoc($result)) {
+			while ($row = mysqli_fetch_assoc($result)) {
 				$return[] = self::loadByRow($row);
 			}
 		}			
@@ -60,7 +60,7 @@ class Transaction {
 		$result = DB::execute($sql);
 		
 		if ($result) {
-			$row = mysql_fetch_assoc($result);
+			$row = mysqli_fetch_assoc($result);
 			$return = self::loadByRow($row);
 			return $return;
 		}			
@@ -79,7 +79,7 @@ class Transaction {
 		$result = DB::execute($sql);
 		
 		if ($result) {
-			while ($row = mysql_fetch_assoc($result)) {
+			while ($row = mysqli_fetch_assoc($result)) {
 				$return[] = self::loadByRow($row);
 			}
 			return $return;
@@ -98,7 +98,7 @@ class Transaction {
 		$result = DB::execute($sql);
 				
 		if ($result) {
-			while ($row = mysql_fetch_assoc($result)) {
+			while ($row = mysqli_fetch_assoc($result)) {
 				$return[] = self::loadByRow($row);
 			}
 			return $return;
@@ -124,7 +124,7 @@ class Transaction {
 		$result = DB::execute($sql);
 				
 		if ($result) {
-			while ($row = mysql_fetch_assoc($result)) {
+			while ($row = mysqli_fetch_assoc($result)) {
 				$return[] = self::loadByRow($row);
 			}
 			return $return;
@@ -144,7 +144,7 @@ class Transaction {
 		$result = DB::execute($sql);
 				
 		if ($result) {
-			while ($row = mysql_fetch_assoc($result)) {
+			while ($row = mysqli_fetch_assoc($result)) {
 				$return[] = self::loadByRow($row);
 			}
 			return $return;
@@ -168,7 +168,7 @@ class Transaction {
 		$result = DB::execute($sql);
 		
 		if ($result) {
-			while ($row = mysql_fetch_assoc($result)) {
+			while ($row = mysqli_fetch_assoc($result)) {
 			
 				$t = self::loadByRow($row);
 				
@@ -197,7 +197,7 @@ class Transaction {
 		$result = DB::execute($sql);
 
 		if ($result) {
-			while ($row = mysql_fetch_assoc($result)) {
+			while ($row = mysqli_fetch_assoc($result)) {
 				
 				// all oldest transaction are loading. Date must be updated with the oldest date to know wich date it is
 				if (!is_null($row)) {
@@ -232,7 +232,7 @@ class Transaction {
 		$result = DB::execute($sql);
 				
 		if ($result) {
-			$row = mysql_fetch_assoc($result);
+			$row = mysqli_fetch_assoc($result);
 			return $row['S'];
 		}			
 		return false;
@@ -255,7 +255,7 @@ class Transaction {
 		$result = DB::execute($sql);
 				
 		if ($result) {
-			$row = mysql_fetch_assoc($result);
+			$row = mysqli_fetch_assoc($result);
 			return $row['S'];
 		}			
 		return false;
@@ -279,13 +279,14 @@ class Transaction {
 		$result = DB::execute($sql);
 				
 		if ($result) {
-			$row = mysql_fetch_assoc($result);
+			$row = mysqli_fetch_assoc($result);
 			$totalDebit = $row['S'];
 		}
 
 		$totalCredit = self::getCredit($date, 1, $account);
 		
-		return $balance->getAmount() + $totalCredit - $totalDebit;
+		$amount = $balance != null ? $balance->getAmount() : 0;
+		return $amount + $totalCredit - $totalDebit;
 	}
 	
 	// paid : We want the credit with only received credit
@@ -303,7 +304,7 @@ class Transaction {
 		$result = DB::execute($sql);
 				
 		if ($result) {
-			$row = mysql_fetch_assoc($result);
+			$row = mysqli_fetch_assoc($result);
 			return $row['S'];
 		}
 		return false;
@@ -322,7 +323,7 @@ class Transaction {
 		$result = DB::execute($sql);
 				
 		if ($result) {
-			$row = mysql_fetch_assoc($result);
+			$row = mysqli_fetch_assoc($result);
 			return $row['S'];
 		}			
 		return false;
@@ -374,7 +375,7 @@ class Transaction {
 		$result = DB::execute($sql);
 				
 		if ($result) {
-			while ($row = mysql_fetch_assoc($result)) {		
+			while ($row = mysqli_fetch_assoc($result)) {		
 			
 				$t = self::loadByRow($row);
 				if ($row['IS_ANNUAL'])
@@ -482,7 +483,7 @@ class Transaction {
 		$result = DB::execute($sql);
 				
 		if ($result) {
-			$row = mysql_fetch_assoc($result);
+			$row = mysqli_fetch_assoc($result);
 			return ($row['COUNT'] > 0);
 		}		
 

@@ -27,7 +27,7 @@ class Account {
 		$result = DB::execute($sql);
 		
 		if ($result) {
-			while ($row = mysql_fetch_assoc($result)) {
+			while ($row = mysqli_fetch_assoc($result)) {
 				$return[] = self::loadByRow($row);
 			}
 		}			
@@ -40,7 +40,7 @@ class Account {
 		$sql .= "AND AC_ID = '".$id."' ";
 		$sql .= "ORDER BY AC_ID ";
 		$result = DB::execute($sql);
-		$row = mysql_fetch_assoc($result);
+		$row = mysqli_fetch_assoc($result);
 		
 		if ($row != '')
 			return self::loadByRow($row);
@@ -54,7 +54,7 @@ class Account {
 		$sql .= "AND AC_DEFAULT = 1 ";
 		$sql .= "ORDER BY AC_ID ";
 		$result = DB::execute($sql);
-		$row = mysql_fetch_assoc($result);
+		$row = mysqli_fetch_assoc($result);
 		
 		if ($row != '')
 			return self::loadByRow($row);

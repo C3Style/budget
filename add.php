@@ -31,11 +31,10 @@
 	} else {
 		$operations = array();
 	}
-	
-	$title  = ($transaction->getId() > 0)?Texte::getText($_SESSION['lang'], 'modifier'):Texte::getText($_SESSION['lang'], 'ajouter');
+
+	$title  = ($transaction != null && $transaction->getId() > 0)?Texte::getText($_SESSION['lang'], 'modifier'):Texte::getText($_SESSION['lang'], 'ajouter');
 	$title .= (" " . Texte::getText($_SESSION['lang'], 'une_transaction'));
-	$title .= (is_object($actualAccount))?(' (' . $actualAccount->getAccountId() . ' - ' . $actualAccount->getAccountName() . ')'):'';
-	
+	$title .= (is_object($actualAccount))?(' (' . $actualAccount->getAccountId() . ' - ' . $actualAccount->getAccountName() . ')'):'';	
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html>

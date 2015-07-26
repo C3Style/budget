@@ -11,7 +11,7 @@ class _YearReport {
 		$return = array();
 		$result = DB::execute($sql);
 		if ($result) {
-			while ($row = mysql_fetch_assoc($result)) {
+			while ($row = mysqli_fetch_assoc($result)) {
 				$return[$row['OP_ID']][$row['TY_ID']][$row['RE_MONTH']] = $row['TR_AMOUNT'];
 			}
 		}			

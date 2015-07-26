@@ -27,7 +27,7 @@ class Operation {
 		$result = DB::execute($sql);
 		
 		if ($result) {
-			while ($row = mysql_fetch_assoc($result)) {
+			while ($row = mysqli_fetch_assoc($result)) {
 				$return[] = self::loadByRow($row);
 			}
 		}			
@@ -44,7 +44,7 @@ class Operation {
 		$result = DB::execute($sql);
 		
 		if ($result) {
-			while ($row = mysql_fetch_assoc($result)) {
+			while ($row = mysqli_fetch_assoc($result)) {
 				if (!is_null($row)) {
 					$operation = array();
 					$operation['id']			= $row['OP_ID'];
@@ -63,7 +63,7 @@ class Operation {
 		$result = DB::execute($sql);
 		
 		if ($result) {
-			$row = mysql_fetch_assoc($result);
+			$row = mysqli_fetch_assoc($result);
 			$return = self::loadByRow($row);
 			return $return;
 		}			
@@ -77,7 +77,7 @@ class Operation {
 		$result = DB::execute($sql);
 	
 		if ($result) {
-			$row = mysql_fetch_assoc($result);
+			$row = mysqli_fetch_assoc($result);
 			$return = self::loadByRow($row);
 			return $return;
 		}			
@@ -88,7 +88,7 @@ class Operation {
 	
 		// The object with the name name already exist
 		$op = Operation::loadByNameAndAccount($this->name, $this->account_id);
-		if ($op->getId() > 0)
+		if ($op != null && $op->getId() > 0)
 			return false;
 	
 		$sql =  "INSERT INTO `operation_t` (`OP_ID`, `OP_AC_ID`, `OP_NAME`, `OP_LOGIN`) ";

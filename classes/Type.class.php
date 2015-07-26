@@ -22,7 +22,7 @@ class Type {
 		$result = DB::execute($sql);
 		
 		if ($result) {
-			while ($row = mysql_fetch_assoc($result)) {
+			while ($row = mysqli_fetch_assoc($result)) {
 				$return[] = self::loadByRow($row);
 			}
 		}			
@@ -35,7 +35,7 @@ class Type {
 		$result = DB::execute($sql);
 		
 		if ($result) {
-			$row = mysql_fetch_assoc($result);
+			$row = mysqli_fetch_assoc($result);
 			$return = self::loadByRow($row);
 			return $return;
 		}			
